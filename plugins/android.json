@@ -1,0 +1,34 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-background-mode": {
+      "PACKAGE_NAME": "com.eghbali.Avec"
+    },
+    "cordova-plugin-contacts": {
+      "PACKAGE_NAME": "com.eghbali.Avec"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "com.eghbali.Avec"
+    },
+    "cordova-plugin-media-capture": {
+      "PACKAGE_NAME": "com.eghbali.Avec"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "com.eghbali.Avec"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "com.eghbali.Avec"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "com.eghbali.Avec"
+    }
+  }
+}

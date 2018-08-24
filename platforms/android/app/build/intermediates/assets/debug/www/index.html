@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, see:
+            https://github.com/apache/cordova-plugin-whitelist/blob/master/README.md#content-security-policy
+        Some notes:
+            * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+       
+        <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval';" />
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+        <script src="./js/jquery-3.3.1.min.js"></script>
+        <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>    
+        <link href="./css/MdBootstrapPersianDateTimePicker/jquery.Bootstrap-PersianDateTimePicker.css" rel="stylesheet">
+        <script defer src="https://use.fontawesome.com/releases/v5.2.0/js/all.js" ></script>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/index.js"></script>
+
+        <title>FLOC</title>
+    </head>
+    <body>
+
+        <div id="map"></div>
+
+        <!--  *contact page here*
+        <div id="contactPage" style="display: none;">
+            <div id="searchContacts">
+                <input type="text" id="addUser" placeholder="جست و جوی مخاطب...">
+            </div>
+        </div>
+        -->
+
+        <div id="confirmDate">
+            <div id="attachments">
+                <div id="iconRow1">
+                    <button class="attachBTN" id="addNote"></button>
+                    <button class="attachBTN" id="attachFile"></button>
+                    <button class="attachBTN" id="record"></button>
+                </div>
+
+                <div id="iconRow2">
+                    <button class="attachBTN" id="chngColor"></button>
+                    <button class="attachBTN" id="alarm"></button>
+                    <button class="attachBTN" id="priority"></button>
+                </div>
+
+            </div>
+        </div>
+
+    <div id="container">
+
+        <p1 id="title">قرار کجا باشه؟</p1> 
+        <div id="address"></div>
+
+       
+
+        <div id="date" style="display: none;">
+            <i class="far fa-calendar-alt"></i>
+            <p2>     تاریخ قرار     </p2>
+            <div class="form-group">
+              <label class="sr-only" for="exampleInput3">Meeting Date</label>
+              <div class="input-group">
+                  <input type="text" class="form-control" id="exampleInput3" placeholder="چه روزی باشه؟" data-mddatetimepicker="true" data-placement="bottom" data-englishnumber="true" />
+              </div>
+            </div>
+            </div>      
+
+
+            <div class="input-group input-group-lg" id="time" style="display: none">
+                <i class="far fa-clock"></i>
+                <p2> ساعت ملاقات</p2>
+                <input  id="timeinput" type="time" class="form-control" autocomplete="on" value="12:34" required>
+            </div>        
+
+
+            <div id="friends">
+                    <i class="fas fa-user-tie"></i>
+                    <p2>دعوت کن</p2>
+             <!--   <input type="text" id="addUser" placeholder="جست و جوی مخاطب"> -->
+                    <button id="showContacts"></button>
+            </div>
+
+            <div id="founded"></div>
+
+            <div id="footer">
+                    <div id="BTN">
+                            <button id="next" onclick="hideMap()">ادامه</button>
+                    </div>
+            <!--    <button id="setAdd" onclick="app.sendSms()">send</button> -->
+            </div>
+        
+        </div>
+        <script async defer
+        src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyC-74bxG6QQ9r83svnnZumBCg4FfE78Ujc&language=fa"></script>
+        <script src="js/MdBootstrapPersianDateTimePicker/calendar.min.js"></script>
+        <script src="js/MdBootstrapPersianDateTimePicker/jquery.Bootstrap-PersianDateTimePicker.js"></script>
+    </body>
+</html>

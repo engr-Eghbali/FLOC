@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "344355956143",
+    "firebase_url": "https://avec-6de35.firebaseio.com",
+    "project_id": "avec-6de35",
+    "storage_bucket": "avec-6de35.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:344355956143:android:f52ffe99dc638fdf",
+        "android_client_info": {
+          "package_name": "io.cordova.hellocordova"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "344355956143-5pvhh6m312nt7c7nf59uupn3sfm4evt4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDT1D85cDn8jUEqYx1FpYrP45ZRB38OfsQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
