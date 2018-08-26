@@ -1,13 +1,13 @@
 -- Merging decision tree log ---
 manifest
-ADDED from C:\Users\reza\Desktop\bu\Avec\Avec\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from C:\Users\reza\Desktop\bu\Avec\Avec\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from C:\Users\reza\Desktop\bu\Avec\Avec\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from C:\Users\reza\Desktop\bu\Avec\Avec\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
+ADDED from C:\Users\reza\Desktop\bu\Avec\Avec\platforms\android\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\reza\Desktop\bu\Avec\Avec\platforms\android\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\reza\Desktop\bu\Avec\Avec\platforms\android\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\reza\Desktop\bu\Avec\Avec\platforms\android\app\src\main\AndroidManifest.xml:2:1-28:12
 MERGED from [:CordovaLib] C:\Users\reza\Desktop\bu\Avec\Avec\platforms\android\CordovaLib\build\intermediates\manifests\full\debug\AndroidManifest.xml:20:1-27:12
-INJECTED from C:\Users\reza\Desktop\bu\Avec\Avec\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from C:\Users\reza\Desktop\bu\Avec\Avec\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
-INJECTED from C:\Users\reza\Desktop\bu\Avec\Avec\platforms\android\app\src\main\AndroidManifest.xml:2:1-26:12
+INJECTED from C:\Users\reza\Desktop\bu\Avec\Avec\platforms\android\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\reza\Desktop\bu\Avec\Avec\platforms\android\app\src\main\AndroidManifest.xml:2:1-28:12
+INJECTED from C:\Users\reza\Desktop\bu\Avec\Avec\platforms\android\app\src\main\AndroidManifest.xml:2:1-28:12
 	package
 		ADDED from C:\Users\reza\Desktop\bu\Avec\Avec\platforms\android\app\src\main\AndroidManifest.xml:2:102-128
 		INJECTED from C:\Users\reza\Desktop\bu\Avec\Avec\platforms\android\app\src\main\AndroidManifest.xml
@@ -134,3 +134,11 @@ uses-permission#android.permission.READ_EXTERNAL_STORAGE
 ADDED from C:\Users\reza\Desktop\bu\Avec\Avec\platforms\android\app\src\main\AndroidManifest.xml:25:5-80
 	android:name
 		ADDED from C:\Users\reza\Desktop\bu\Avec\Avec\platforms\android\app\src\main\AndroidManifest.xml:25:22-77
+uses-permission#android.permission.MODIFY_AUDIO_SETTINGS
+ADDED from C:\Users\reza\Desktop\bu\Avec\Avec\platforms\android\app\src\main\AndroidManifest.xml:26:5-80
+	android:name
+		ADDED from C:\Users\reza\Desktop\bu\Avec\Avec\platforms\android\app\src\main\AndroidManifest.xml:26:22-77
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from C:\Users\reza\Desktop\bu\Avec\Avec\platforms\android\app\src\main\AndroidManifest.xml:27:5-75
+	android:name
+		ADDED from C:\Users\reza\Desktop\bu\Avec\Avec\platforms\android\app\src\main\AndroidManifest.xml:27:22-72

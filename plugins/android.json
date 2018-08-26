@@ -21,6 +21,9 @@
     },
     "cordova-plugin-whitelist": {
       "PACKAGE_NAME": "com.eghbali.Avec"
+    },
+    "cordova-plugin-media": {
+      "PACKAGE_NAME": "com.eghbali.Avec"
     }
   },
   "dependent_plugins": {

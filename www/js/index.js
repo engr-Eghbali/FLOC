@@ -346,8 +346,33 @@ $(document).ready(function(){
   
 
   //////audio///////
-  document.getElementById("record").addEventListener('touchstart',audioCapture());
+  document.getElementById("record").addEventListener('click',()=>{
+    console.log("audio capture fired");
+    var options = {
+       limit: 1,
+       duration: 60
+    };
+    navigator.device.capture.captureAudio(onSuccess, onError, options);
+ 
+    function onSuccess(mediaFiles) {
+       var i, path, len,my_media;
+       for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+          path = mediaFiles[i].fullPath;
+          my_media = new Media(path, function(){console.log("well played!")}, function(){console.log("you suck:(")});
+          console.log(mediaFiles);
+
+       }
+       my_media.play();
+      
+    }
+ 
+    function onError(error) {
+       navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
+    }
+  });
   
+
+
 
 
   ///scroll determination////////////
@@ -540,29 +565,4 @@ function setDate(){
 ///////////////////////////////audio test/////////////////
 
 // Start the capture.
-
-
-    function audioCapture() {
-        var options = {
-           limit: 1,
-           duration: 60
-        };
-        navigator.device.capture.captureAudio(onSuccess, onError, options);
-     
-        function onSuccess(mediaFiles) {
-           var i, path, len;
-           for (i = 0, len = mediaFiles.length; i < len; i += 1) {
-              path = mediaFiles[i].fullPath;
-              console.log(mediaFiles);
-           }
-        }
-     
-        function onError(error) {
-           navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
-        }
-     }
-
-
-
-
 

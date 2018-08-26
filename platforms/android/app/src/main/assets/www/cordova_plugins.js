@@ -348,6 +348,22 @@ module.exports = [
     "file": "plugins/cordova-plugin-media-capture/www/android/init.js",
     "pluginId": "cordova-plugin-media-capture",
     "runs": true
+  },
+  {
+    "id": "cordova-plugin-media.MediaError",
+    "file": "plugins/cordova-plugin-media/www/MediaError.js",
+    "pluginId": "cordova-plugin-media",
+    "clobbers": [
+      "window.MediaError"
+    ]
+  },
+  {
+    "id": "cordova-plugin-media.Media",
+    "file": "plugins/cordova-plugin-media/www/Media.js",
+    "pluginId": "cordova-plugin-media",
+    "clobbers": [
+      "window.Media"
+    ]
   }
 ];
 module.exports.metadata = 
@@ -359,7 +375,8 @@ module.exports.metadata =
   "cordova-plugin-geolocation": "4.0.1",
   "cordova-plugin-file": "6.0.1",
   "cordova-plugin-media-capture": "3.0.2",
-  "cordova-plugin-whitelist": "1.3.3"
+  "cordova-plugin-whitelist": "1.3.3",
+  "cordova-plugin-media": "5.0.2"
 };
 // BOTTOM OF METADATA
 });
