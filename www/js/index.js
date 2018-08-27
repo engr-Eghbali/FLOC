@@ -1,4 +1,4 @@
-//global vars
+///////global vars
 var current_add;
 var date_add;
 var invited="";
@@ -6,6 +6,11 @@ var marker;
 var map;
 var level=1;
 
+
+
+
+
+////////////handle drag event for map pointer
 function handleDrag(event){
     coordinates_to_address(event.latLng.lat(),event.latLng.lng());      
     placeMarker(map, event.latLng);
@@ -17,7 +22,9 @@ function handleDrag(event){
 }
 
 
-// place marker
+
+
+///////////////////// place marker
 function placeMarker(map, location) {
     
   
@@ -39,7 +46,8 @@ function placeMarker(map, location) {
 }
 
 
-// coordinates => formated address
+
+////////////// coordinates => formated address
 function coordinates_to_address(lat, lng) {
 
     var formatedAdd; 
@@ -64,7 +72,7 @@ function coordinates_to_address(lat, lng) {
   
   
   
-  //set map to its div
+/////////////////set map to its div
   function setMap(){
   
     var x,y;
@@ -77,8 +85,8 @@ function coordinates_to_address(lat, lng) {
       y=51.676933;
     }
 
-    coordinates_to_address(x,y);
-     //intial map 
+ coordinates_to_address(x,y);
+//////////intial map with customized style
   function initMap() {
     
     var styledMapType = new google.maps.StyledMapType(
@@ -225,7 +233,7 @@ function coordinates_to_address(lat, lng) {
       
     });    
     */
-
+//////////////////handle click event on map for map pointer
     google.maps.event.addListener(map, 'click', function(event) {
       coordinates_to_address(event.latLng.lat(),event.latLng.lng());      
       placeMarker(map, event.latLng);
@@ -237,7 +245,7 @@ function coordinates_to_address(lat, lng) {
 
 
 
-
+/////initiate marker
     var image = {
       url: './img/home.png',
       // This marker is 20 pixels wide by 32 pixels high.
@@ -257,14 +265,14 @@ function coordinates_to_address(lat, lng) {
   }
   
   
+
+////////call map ini
   initMap();
   
   }
 
 
-
-
-     //get current position when its ready
+////////////////get current position when its ready
   $(window).on('load', function () {
 
     if (navigator.geolocation) {
@@ -281,8 +289,7 @@ function coordinates_to_address(lat, lng) {
    
   });
   
-
-
+   ///if GPS is available
 function positionSuccess(position) {
     current_add = {
      lat: position.coords.latitude,
@@ -292,6 +299,7 @@ function positionSuccess(position) {
    return setMap();
  }
 
+ ///if GPS is not available
 function positionError(){
   var r=confirm("You'r location is unavailable,continue anyway?");
   if(r){
@@ -304,7 +312,12 @@ function positionError(){
 }
 
 
-//hide map after choose position
+////////////////////////////////////////////////////////////////////////////////
+
+
+
+
+////////////////////hide map after choose position
 function hideMap(){
   $("#map").animate({marginTop:'-100%'},1000);
   $("#title").text("قرار کی باشه؟");
@@ -319,10 +332,8 @@ function hideMap(){
   $("#next").text("ثبت");
   $("#next").attr("onclick","setDate()");
   level=0;
-
-
 }
-//show map again
+/////////////////////////show map again
 function showMap(){
  
   $("#map").animate({marginTop:'18%'},1000);
@@ -339,7 +350,13 @@ function showMap(){
   level=1;
 
 }
+//////////////////////////////////////////////////////////////////////////
 
+
+
+
+//////////////////////////////////////////////////////////////////////////
+/////////////DOCUMENT READY EVENT's /////////////////////////////////////
 
 $(document).ready(function(){
 
@@ -348,6 +365,7 @@ $(document).ready(function(){
   //////audio///////
   document.getElementById("record").addEventListener('click',()=>{
     console.log("audio capture fired");
+    voiceConfirmState(30);
     var options = {
        limit: 1,
        duration: 60
@@ -355,14 +373,15 @@ $(document).ready(function(){
     navigator.device.capture.captureAudio(onSuccess, onError, options);
  
     function onSuccess(mediaFiles) {
-       var i, path, len,my_media;
-       for (i = 0, len = mediaFiles.length; i < len; i += 1) {
-          path = mediaFiles[i].fullPath;
-          my_media = new Media(path, function(){console.log("well played!")}, function(){console.log("you suck:(")});
+       var  path,recordedVoice;
+       
+          path = mediaFiles[0].fullPath;
+          recordedVoice = new Media(path, function(){console.log("well played!")}, function(){console.log("you suck:(")});
+          
+          ///voiceConfirmState() #HERE#
+          
           console.log(mediaFiles);
-
-       }
-       my_media.play();
+          //recordedVoice.play();
       
     }
  
@@ -371,11 +390,21 @@ $(document).ready(function(){
     }
   });
   
+  function voiceConfirmState(duration){
+      
+
+      $("#attachFile").hide();
+      $("#addNote").hide();
+      $("#iconRow2").hide();
+      $("#record").css('margin-left','40%');
+
+
+  }
 
 
 
 
-  ///scroll determination////////////
+  /////////////////////scroll determination////////////
   var Tstart,Tend;
 
   var obj = document.getElementById("container");
@@ -409,15 +438,13 @@ $(document).ready(function(){
 
      }
        //unhide (set level 1)
-      
- 
-    
   }, false);
 
-  ////!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!1////////////
 
 
 
+
+  /////////////////////keyboadr show/hide handler ////////////
   window.addEventListener('keyboardDidShow', (event) => {
   // Describe your logic which will be run each time keyboard is shown.
   $("#title").text('کی بیاد؟');
@@ -429,9 +456,8 @@ $(document).ready(function(){
   $("#time").hide();
 
 });
-
 window.addEventListener('keyboardDidHide', () => {
-  // Describe your logic which will be run each time keyboard is closed.
+///////////////// Describe your logic which will be run each time keyboard is closed.
   $("#founded").css('height','18vh');
   $("#friends").css('margin-top','4vh');
   $("#address").show();
@@ -440,7 +466,7 @@ window.addEventListener('keyboardDidHide', () => {
   $("#title").text('مشخصات قرار');
 });
 
-  //trigger when pressing key for contact search
+//////////////////trigger when pressing key for contact search
   $("input").keyup(function(){
     
     function onSuccess(contacts) {
@@ -463,41 +489,38 @@ window.addEventListener('keyboardDidHide', () => {
   function onError(contactError) {
       alert('onError!');
   };
-  
-  // find all contacts with 'Bob' in any name field
+/////////////////// find all contacts with 'Bob' in any name field
   var options      = new ContactFindOptions();
   options.filter   = $("#addUser").val();
   options.multiple = true;
   options.hasPhoneNumber = true;
   var fields       = [navigator.contacts.fieldType.displayName, navigator.contacts.fieldType.name];
   navigator.contacts.find(fields, onSuccess, onError, options);  
-
-
   });
-});
 
-//add invited No. to Gvar
-function addNumber(No){
-  if(invited.length>0){
-    invited=invited+","+No;
-  }else{
-    invited=No;
-  }
-  alert(invited);
 
-  //enable background mod
-  
-  
-}
+});///////////////end of document ready events
 
+
+
+
+
+
+///////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////
+
+//////////////////DEVICE READY EVENTS/////////////////////////
 document.addEventListener('deviceready', function () {
     // cordova.plugins.backgroundMode is now available
     cordova.plugins.backgroundMode.enable();
-}, false);
+
+}, false);//////end of device ready events
 
 
 
-//send sms ##### TODO : sending multiple messages is only available in INTENT, do it  "foreach" contact....
+
+////////////////////////////////////////////////////////////////////////////////
+///////send sms ##### TODO : sending multiple messages is only available in INTENT, do it  "foreach" contact....
 var app = {
   sendSms: function() {
       var number ="'"+ invited+"'";
@@ -518,7 +541,8 @@ var app = {
 };
 
 
-//////////////////////////////
+///////////////////////////////////////////////////////
+////////////////////////////// set and confirm date
 
 function setDate(){
 
@@ -554,15 +578,40 @@ function setDate(){
   }
     
      
-     
+  //1
      calculateDistance(current_add, date_add);
 }
+///////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////
 
 
 
+//////////////add invited No. to Gvar
+function addNumber(No){
+    if(invited.length>0){
+      invited=invited+","+No;
+    }else{
+      invited=No;
+    }
+    alert(invited);  
+  }
+  //////////////////////////////////////////
+  ////////////////////////////////////////
+  function playRecorded(duration){
 
+    $("#playBTN").css('background-image','url(./img/pause.svg)');
+    var constant=96/(duration*10),i=4;
+    function forwardSeeker(){
+        i=i+constant;
+        console.log(i);
+        if(i>99.9){
+            clearInterval(interval);
+            i=4;
+            $("#seeker").css('background-image','linear-gradient(to right,#fff000,#fff000 '+i+'%,#cccddd '+i+'%,#cccddd 100%)');
+            $("#playBTN").css('background-image','url(./img/play.svg)');
+        }
+        $("#seeker").css('background-image','linear-gradient(to right,#fff000,#fff000 '+i+'%,#cccddd '+i+'%,#cccddd 100%)');
 
-///////////////////////////////audio test/////////////////
-
-// Start the capture.
-
+    }
+   var interval=setInterval(forwardSeeker,100);
+}
