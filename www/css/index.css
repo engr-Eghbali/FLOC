@@ -340,8 +340,14 @@ p2{
   width: 50%;
   height: 0.5%;
   border-radius: 20%;
-  background-image: linear-gradient(to right,#fff000,#fff000 4%,#cccddd 4%,#cccddd 100%);
+  background-color: #cccddd;
   margin-top: 10%;
   position: fixed;
   margin-right: 5%;
+}
+#progressBar{
+  width:2%;
+  height: 100%;
+  float: left;
+  background-color: #fff000;
 }

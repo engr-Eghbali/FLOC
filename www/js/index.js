@@ -364,23 +364,67 @@ $(document).ready(function(){
 
   //////audio///////
   document.getElementById("record").addEventListener('click',()=>{
+   
     console.log("audio capture fired");
-    voiceConfirmState(30);
     var options = {
        limit: 1,
        duration: 60
     };
+
     navigator.device.capture.captureAudio(onSuccess, onError, options);
  
+    $("#attachFile").hide();
+    $("#addNote").hide();
+    $("#iconRow2").hide();
+    $("#record").css('margin-left','40%');
+
     function onSuccess(mediaFiles) {
-       var  path,recordedVoice;
+       var  path,recordedVoice,stat,interval,i=4;
        
-          path = mediaFiles[0].fullPath;
-          recordedVoice = new Media(path, function(){console.log("well played!")}, function(){console.log("you suck:(")});
-          
+        path = mediaFiles[0].fullPath;
+        recordedVoice = new Media(path, function(){console.log("well played!")}, function(e){console.log("you suck:(=>"+e)},function(status){stat=status});
+        recordedVoice.play();
+        recordedVoice.pause();
+
+        ////playBTN listener event
+          document.getElementById("playBTN").addEventListener("click",()=>{
+             
+            var constant=96/(recordedVoice.getDuration()*10);
+             progressBar=document.getElementById("progressBar");
+
+             ///// forward progressBar
+             function forwardSeeker(){
+                 console.log("status:"+stat+" percent:"+i);
+                 
+                 i=i+constant;
+                if(stat==4){
+                    
+                    i=4;
+                    progressBar.style.width=i+'%';
+                    $("#playBTN").css('background-image','url(./img/play.svg)');
+                    clearInterval(interval);
+                    }
+
+                     progressBar.style.width=i+'%';
+                 }
+
+             if(stat==2){
+
+                recordedVoice.pause();
+                $("#playBTN").css('background-image','url(./img/play.svg)');
+                clearInterval(interval);
+
+             }else{
+
+                recordedVoice.play()
+                $("#playBTN").css('background-image','url(./img/pause.svg)');
+                interval=setInterval(forwardSeeker,100);   
+             }
+
+
+          });
           ///voiceConfirmState() #HERE#
           
-          console.log(mediaFiles);
           //recordedVoice.play();
       
     }
@@ -390,17 +434,6 @@ $(document).ready(function(){
     }
   });
   
-  function voiceConfirmState(duration){
-      
-
-      $("#attachFile").hide();
-      $("#addNote").hide();
-      $("#iconRow2").hide();
-      $("#record").css('margin-left','40%');
-
-
-  }
-
 
 
 
@@ -597,21 +630,5 @@ function addNumber(No){
   }
   //////////////////////////////////////////
   ////////////////////////////////////////
-  function playRecorded(duration){
-
-    $("#playBTN").css('background-image','url(./img/pause.svg)');
-    var constant=96/(duration*10),i=4;
-    function forwardSeeker(){
-        i=i+constant;
-        console.log(i);
-        if(i>99.9){
-            clearInterval(interval);
-            i=4;
-            $("#seeker").css('background-image','linear-gradient(to right,#fff000,#fff000 '+i+'%,#cccddd '+i+'%,#cccddd 100%)');
-            $("#playBTN").css('background-image','url(./img/play.svg)');
-        }
-        $("#seeker").css('background-image','linear-gradient(to right,#fff000,#fff000 '+i+'%,#cccddd '+i+'%,#cccddd 100%)');
-
-    }
-   var interval=setInterval(forwardSeeker,100);
-}
+//  function playRecorded(duration){
+//}
