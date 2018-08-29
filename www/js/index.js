@@ -376,6 +376,7 @@ $(document).ready(function(){
     $("#attachFile").hide();
     $("#addNote").hide();
     $("#iconRow2").hide();
+    $("#player").show();
     $("#record").css('margin-left','40%');
 
     function onSuccess(mediaFiles) {
@@ -535,7 +536,15 @@ window.addEventListener('keyboardDidHide', () => {
 });///////////////end of document ready events
 
 
-
+///////////////////////////////////////////////////
+/////////show camera/recorder and file manager icon
+function showAttachRow(){
+    $("#iconRow2").hide();
+    $("#addNote").hide();
+    $("#record").hide();
+    $("#attachFile").css('margin-left','40%');
+    $("#fileRow").show();
+}
 
 
 
@@ -616,6 +625,9 @@ function setDate(){
 }
 ///////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////
+
+
+
 
 
 
